@@ -5,11 +5,13 @@ class SearchFacade
   end
 
   def stations
-    json_data
+    json_data.map do |station|
+      Station.new(station)
+    end
   end
 
   def json_data
-    JSON.parse(conn.body, symbolize_names: true)
+    JSON.parse(conn.body, symbolize_names: true)[:fuel_stations]
   end
 
   def conn

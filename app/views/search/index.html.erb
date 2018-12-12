@@ -2,8 +2,15 @@
 
   <% @search_facade.stations.each do |station| %>
     <div class="station">
-      <p><span class="distance">5</span></p>
-
+      <h3><%= station.name %></h3>
+      <p>Street Address: <%= station.street_address %></p>
+      <p>City: <%= station.city %></p>
+      <p>State: <%= station.state %></p>
+      <p>Country: <%= station.country %></p>
+      <p>Zip: <%= station.zip %></p>
+      <p>Distance: <span class="distance"><%= station.distance %></span></p>
+      <p>Fuel Type: <span class="fuel_type"><%= station.fuel_type %></span></p>
+      <p>Access Times: <span class="access_times"><%= station.access_times %></span></p>
     </div>
   <% end %>
 

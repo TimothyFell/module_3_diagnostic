@@ -22,25 +22,31 @@ describe "User can visit root page" do
     expect(page.all('.station').count).to be <= 10
   end
 
-  it 'the search results should all be within 6 miles' do
-    expect(page.all('.station > .distance').any? do |distance|
-      distance > 6
-    end).to eq(false)
-  end
-
-  xit 'the search resulsts should be sorted nearest to farthest' do
-
-  end
-
-  xit 'each station in the results should contain all relevant data' do
-
+  it 'each station in the results should contain all relevant data' do
 
     within first('.station') do
-      expect(page).to have_content(station.name)
-      expect(page).to have_content(station.address)
-      expect(page).to have_content(station.fuel_type)
-      expect(page).to have_content(station.distance)
-      expect(page).to have_content(station.access_times)
+      expect(page).to have_content('UDR')
+      expect(page).to have_content('800 Acoma St')
+      expect(page).to have_content('Denver')
+      expect(page).to have_content('CO')
+      expect(page).to have_content('US')
+      expect(page).to have_content('80204')
+      expect(page).to have_content('0.31422')
+      expect(page).to have_content('ELEC')
+      expect(page).to have_content('24 hours daily')
     end
+  end
+
+  it 'the search results should all be within 6 miles and are sorted closest to farthest' do
+    within all('.station').last do
+      @last_distance = find('.distance').text.to_f
+      expect(find('.distance').text.to_f).to be <= 6
+    end
+    within all('.station').first do
+      @first_distance = find('.distance').text.to_f
+      expect(find('.distance').text.to_f).to be <= 6
+    end
+
+    expect(@last_distance).to be > @first_distance
   end
 end
