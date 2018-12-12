@@ -18,6 +18,16 @@
       "/Users/timfell/Documents/turing/3module/classwork/alt-fuel-finder/app/controllers/search_controller.rb": [
         1,
         1,
+        2,
+        null,
+        null
+      ],
+      "/Users/timfell/Documents/turing/3module/classwork/alt-fuel-finder/app/facade/search_facade.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
         null,
         null
       ],
@@ -26,6 +36,6 @@
         0
       ]
     },
-    "timestamp": 1544632371
+    "timestamp": 1544633045
   }
 }
