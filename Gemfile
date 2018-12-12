@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.4.1'
+
 gem 'rails', '5.1.4'
 gem 'sqlite3'
 gem 'sass-rails', '~> 5.0.6'
@@ -15,6 +17,8 @@ gem 'figaro'
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'
+  gem 'pry'
+  gem 'simplecov'
 end
 
 group :development do
@@ -27,4 +31,3 @@ group :test do
   gem 'webmock'
   gem 'capybara'
 end
-
